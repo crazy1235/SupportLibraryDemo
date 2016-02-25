@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SupportLibraryDemo</string>
+
+    <string name="mode_night_yes">MODE_NIGHT_YES</string>
+    <string name="mode_night_no">MODE_NIGHT_NO</string>
+    <string name="mode_night_auto">MODE_NIGHT_AUTO</string>
+</resources>

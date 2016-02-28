@@ -4,4 +4,24 @@
     <string name="mode_night_yes">MODE_NIGHT_YES</string>
     <string name="mode_night_no">MODE_NIGHT_NO</string>
     <string name="mode_night_auto">MODE_NIGHT_AUTO</string>
+
+
+    <string name="btn_test_tab">Chrome Custom Tabs</string>
+    <string name="label_custom_tab_settings">CustomTabsSettings</string>
+
+
+    <string name="label_add_action_button">Add Action Button</string>
+    <string name="label_add_menus">Add Menus</string>
+    <string name="label_show_title">Show title</string>
+    <string name="label_custom_back_button">Custom back button</string>
+    <string name="label_add_toolbar_color">Add toolbar Color</string>
+    <string name="label_auto_hide_appbar">Auto-hide AppBar</string>
+    <string name="label_add_tool_bar_item">Add ToolbarItem</string>
+    <string name="label_set_secondary_toolbar_color">Set SecondaryToolbar Color</string>
+    <string name="label_add_start_animation">Add Start Animation</string>
+    <string name="label_add_exit_animation">Add Exit Animation</string>
+
+    <string name="open_custom_tab">Open Custom Tab</string>
+    <string name="default_url">http://www.baidu.com</string>
+    <!--http://blog.csdn.net/crazy1235-->
 </resources>

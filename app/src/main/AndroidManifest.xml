@@ -15,7 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CustomTabsSettingsActivity"></activity>
+        <activity
+            android:name=".CustomTabsSettingsActivity"
+            android:label="@string/label_custom_tab_settings"
+            android:screenOrientation="portrait" />
+        <activity android:name=".BottomSheetDemo"></activity>
     </application>
 
 </manifest>

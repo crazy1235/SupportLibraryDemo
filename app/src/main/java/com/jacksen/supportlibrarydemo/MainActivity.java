@@ -1,6 +1,8 @@
 package com.jacksen.supportlibrarydemo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
@@ -54,11 +56,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btn = (Button) findViewById(R.id.hhh_btn);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button tabBtn = (Button) findViewById(R.id.test_custom_tab_btn);
+        tabBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "hhh", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, CustomTabsSettingsActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -2,83 +2,57 @@ package com.jacksen.supportlibrarydemo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.customtabs.CustomTabsIntent;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.jacksen.supportlibrarydemo.adapter.RecyclerAdapter;
+import com.jacksen.supportlibrarydemo.bean.ActivityDetails;
+import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class MainActivity extends AppCompatActivity implements RecyclerItemInter {
+
+    @Bind(R.id.recycler_view)
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        View bottomSheet = findViewById(R.id.bottom_sheet);
-        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
-        behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(View bottomSheet, int newState) {
-                String state = "null";
-                switch (newState) {
-                    case 1:
-                        state = "STATE_DRAGGING";
-                        break;
-                    case 2:
-                        state = "STATE_SETTLING";
-                        break;
-                    case 3:
-                        state = "STATE_EXPANDED";
-                        break;
-                    case 4:
-                        state = "STATE_COLLAPSED";
-                        break;
-                    case 5:
-                        state = "STATE_HIDDEN";
-                        break;
-                }
-                Log.d("MainActivity", "newState:" + state);
-            }
-
-            @Override
-            public void onSlide(View bottomSheet, float slideOffset) {
-//                Log.d("MainActivity", "slideOffset:" + slideOffset);
-            }
-        });
-        bottomSheet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "bottomSheet", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Button tabBtn = (Button) findViewById(R.id.test_custom_tab_btn);
-        tabBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CustomTabsSettingsActivity.class);
-                startActivity(intent);
-            }
-        });
+        init();
     }
 
+    /**
+     *
+     */
+    private void init() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
-    public void setModeNightNo(View view) {
-        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        recreate();
+        RecyclerAdapter adapter = new RecyclerAdapter(ITEMS);
+        recyclerView.setAdapter(adapter);
+        adapter.setItemInter(this);
+
     }
 
-    public void setModeNightYes(View view) {
-        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        recreate();
-    }
+    private static final ActivityDetails[] ITEMS = {
+            new ActivityDetails(R.string.label_daynight_theme, R.string.label_daynight_theme, DayNightThemeDemo.class),
+            new ActivityDetails(R.string.label_custom_tabs, R.string.desc_custom_tabs, CustomTabsSettingsDemo.class),
+            new ActivityDetails(R.string.label_bottom_sheet, R.string.desc_bottom_sheet, BottomSheetDemo.class)
+    };
 
-    public void setModeNightAuto(View view) {
-        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-        recreate();
+
+    @Override
+    public void onItemClick(View view, int position) {
+        ActivityDetails details = ITEMS[position];
+        Intent intent = new Intent(MainActivity.this, details.getActivityClass());
+        startActivity(intent);
     }
 }

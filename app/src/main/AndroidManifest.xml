@@ -7,8 +7,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.DarkLight">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,10 +18,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CustomTabsSettingsActivity"
+            android:name=".CustomTabsSettingsDemo"
             android:label="@string/label_custom_tab_settings"
             android:screenOrientation="portrait" />
-        <activity android:name=".BottomSheetDemo"></activity>
+        <activity
+            android:name=".BottomSheetDemo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DayNightThemeDemo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.DarkLight" />
     </application>
 
 </manifest>

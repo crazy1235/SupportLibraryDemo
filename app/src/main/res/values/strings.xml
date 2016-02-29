@@ -1,12 +1,19 @@
 <resources>
     <string name="app_name">SupportLibraryDemo</string>
 
+    <!---->
+    <string name="label_daynight_theme">DayNight Theme</string>
+    <string name="desc_daynight_theme">23.2新增主题</string>
+
     <string name="mode_night_yes">MODE_NIGHT_YES</string>
     <string name="mode_night_no">MODE_NIGHT_NO</string>
     <string name="mode_night_auto">MODE_NIGHT_AUTO</string>
 
 
-    <string name="btn_test_tab">Chrome Custom Tabs</string>
+    <!---->
+    <string name="label_custom_tabs">Chrome Custom Tabs</string>
+    <string name="desc_custom_tabs">保持当前APP的外观，无缝过渡到web</string>
+
     <string name="label_custom_tab_settings">CustomTabsSettings</string>
 
 
@@ -24,4 +31,9 @@
     <string name="open_custom_tab">Open Custom Tab</string>
     <string name="default_url">http://www.baidu.com</string>
     <!--http://blog.csdn.net/crazy1235-->
+
+
+    <!--bottomSheet-->
+    <string name="label_bottom_sheet">Bottom Sheets</string>
+    <string name="desc_bottom_sheet">底部划出视图</string>
 </resources>

@@ -25,7 +25,7 @@ import butterknife.OnClick;
  *
  * @author jacksen
  */
-public class CustomTabsSettingsActivity extends AppCompatActivity implements View.OnClickListener {
+public class CustomTabsSettingsDemo extends AppCompatActivity implements View.OnClickListener {
 
     @Bind(R.id.test_url_et)
     EditText testUrlEt;
@@ -140,7 +140,6 @@ public class CustomTabsSettingsActivity extends AppCompatActivity implements Vie
             builder.addToolbarItem(1, bitmap, "help", createSharePendingIntent());
         }
     }
-
 
     /**
      * setSecondaryToolbarColor

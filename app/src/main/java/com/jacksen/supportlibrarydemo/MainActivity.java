@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemInter
     private static final ActivityDetails[] ITEMS = {
             new ActivityDetails(R.string.label_daynight_theme, R.string.label_daynight_theme, DayNightThemeDemo.class),
             new ActivityDetails(R.string.label_custom_tabs, R.string.desc_custom_tabs, CustomTabsSettingsDemo.class),
-            new ActivityDetails(R.string.label_bottom_sheet, R.string.desc_bottom_sheet, BottomSheetDemo.class)
+            new ActivityDetails(R.string.label_bottom_sheet, R.string.desc_bottom_sheet, BottomSheetDemo.class),
+            new ActivityDetails(R.string.label_vector_drawable, R.string.desc_vector_drawable, VectorDrawableDemo.class),
+            new ActivityDetails(R.string.label_navigation_view, R.string.desc_navigation_view, NavigationViewDemo.class)
     };
 
 

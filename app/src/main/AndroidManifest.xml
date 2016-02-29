@@ -23,11 +23,21 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".BottomSheetDemo"
+            android:label="@string/label_bottom_sheet"
             android:screenOrientation="portrait" />
         <activity
             android:name=".DayNightThemeDemo"
+            android:label="@string/label_daynight_theme"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.DarkLight" />
+        <activity
+            android:name=".VectorDrawableDemo"
+            android:label="@string/label_vector_drawable"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NavigationViewDemo"
+            android:label="@string/label_navigation_view"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

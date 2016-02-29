@@ -36,4 +36,21 @@
     <!--bottomSheet-->
     <string name="label_bottom_sheet">Bottom Sheets</string>
     <string name="desc_bottom_sheet">底部划出视图</string>
+
+
+    <!--vector drawable-->
+    <string name="label_vector_drawable">Vector Drawable</string>
+    <string name="desc_vector_drawable">@string/label_vector_drawable</string>
+
+
+    <!--navigation view-->
+    <string name="label_navigation_view">NavigationView</string>
+    <string name="desc_navigation_view">侧滑栏</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
 </resources>

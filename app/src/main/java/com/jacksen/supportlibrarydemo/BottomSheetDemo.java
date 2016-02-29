@@ -1,11 +1,14 @@
 package com.jacksen.supportlibrarydemo;
 
+import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+/**
+ * @author jacksen
+ */
 public class BottomSheetDemo extends AppCompatActivity {
 
     @Override
@@ -44,5 +47,6 @@ public class BottomSheetDemo extends AppCompatActivity {
 //                Log.d("MainActivity", "slideOffset:" + slideOffset);
             }
         });
+
     }
 }

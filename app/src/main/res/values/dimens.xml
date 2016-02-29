@@ -7,4 +7,6 @@
     <dimen name="padding20">20dp</dimen>
 
     <dimen name="peek_height">200dp</dimen>
+
+    <dimen name="fab_margin">0dp</dimen>
 </resources>

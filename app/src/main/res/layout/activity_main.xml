@@ -39,11 +39,11 @@
             android:text="@string/mode_night_auto" />
 
         <Button
-            android:id="@+id/hhh_btn"
+            android:id="@+id/test_custom_tab_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="240dp"
-            android:text="asdfadsf" />
+            android:text="@string/btn_test_tab" />
 
 
     </RelativeLayout>

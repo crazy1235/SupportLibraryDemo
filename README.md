@@ -4,7 +4,7 @@ This is a Demo for Android Support Library.
 
 ## SnapShot
 
-![Bottom Sheet](https://github.com/crazy1235/SupportLibraryDemo/gif/bottom_sheet.gif)
+![Bottom Sheet](https://github.com/crazy1235/SupportLibraryDemo/blob/master/gif/bottom_sheet.gif)
 
 
 ## Contains

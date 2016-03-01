@@ -38,6 +38,9 @@
             android:name=".NavigationViewDemo"
             android:label="@string/label_navigation_view"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".SimpleNaviView"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

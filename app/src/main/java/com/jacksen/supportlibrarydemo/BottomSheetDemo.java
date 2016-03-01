@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 /**
+ * Bottom Sheet
+ *
  * @author jacksen
  */
 public class BottomSheetDemo extends AppCompatActivity {

@@ -29,13 +29,13 @@
     <string name="label_add_exit_animation">Add Exit Animation</string>
 
     <string name="open_custom_tab">Open Custom Tab</string>
-    <string name="default_url">http://www.baidu.com</string>
-    <!--http://blog.csdn.net/crazy1235-->
+    <string name="default_url">http://blog.csdn.net/crazy1235</string>
 
 
     <!--bottomSheet-->
     <string name="label_bottom_sheet">Bottom Sheets</string>
     <string name="desc_bottom_sheet">底部划出视图</string>
+    <string name="bottom_sheet_dialog">Bottom Sheet Dialog</string>
 
 
     <!--vector drawable-->

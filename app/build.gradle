@@ -30,10 +30,11 @@ ext {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
     compile "com.android.support:customtabs:${supportVersion}"
+    compile "com.android.support:cardview-v7:${supportVersion}"
     compile 'com.jakewharton:butterknife:7.0.1'
 }

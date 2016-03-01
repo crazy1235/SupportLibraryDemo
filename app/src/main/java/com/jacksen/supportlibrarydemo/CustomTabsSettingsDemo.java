@@ -137,7 +137,10 @@ public class CustomTabsSettingsDemo extends AppCompatActivity implements View.On
         if (addToolbaritemCheckbox.isChecked()) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                     android.R.drawable.ic_menu_help);
-            builder.addToolbarItem(1, bitmap, "help", createSharePendingIntent());
+            builder.addToolbarItem(1, bitmap, "help", dummyPendingIntent());
+            builder.addToolbarItem(2, bitmap, "help", dummyPendingIntent());
+            builder.addToolbarItem(3, bitmap, "help", dummyPendingIntent());
+            builder.addToolbarItem(4, bitmap, "help", dummyPendingIntent());
         }
     }
 
@@ -209,8 +212,9 @@ public class CustomTabsSettingsDemo extends AppCompatActivity implements View.On
     /**
      *
      */
-    private void createAndShowNotification() {
-
+    private PendingIntent dummyPendingIntent() {
+        Intent dummyIntent = new Intent();
+        return PendingIntent.getActivity(this, 100, dummyIntent, PendingIntent.FLAG_ONE_SHOT);
     }
 
     @OnClick(value = {R.id.start_custom_tab})

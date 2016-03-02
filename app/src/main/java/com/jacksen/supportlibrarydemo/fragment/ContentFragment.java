@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jacksen.supportlibrarydemo.BottomSheetDemo;
+import com.jacksen.supportlibrarydemo.ContentDetailActivity;
 import com.jacksen.supportlibrarydemo.CustomTabsSettingsDemo;
 import com.jacksen.supportlibrarydemo.DayNightThemeDemo;
 import com.jacksen.supportlibrarydemo.NavigationViewDemo;
@@ -94,7 +95,8 @@ public class ContentFragment extends Fragment implements RecyclerItemInter {
     @Override
     public void onItemClick(View view, int position) {
         ActivityDetails details = ITEMS[position];
-        Intent intent = new Intent(getActivity(), details.getActivityClass());
+//        Intent intent = new Intent(getActivity(), details.getActivityClass());
+        Intent intent = new Intent(getActivity(), ContentDetailActivity.class);
         startActivity(intent);
     }
 

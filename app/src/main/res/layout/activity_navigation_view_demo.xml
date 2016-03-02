@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Simple Navigation View" />
+        android:text="@string/simple_navi_view"
+        android:textAllCaps="false" />
 
 </RelativeLayout>

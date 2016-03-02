@@ -1,23 +1,49 @@
 package com.jacksen.supportlibrarydemo;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 
-import com.jacksen.supportlibrarydemo.adapter.RecyclerAdapter;
-import com.jacksen.supportlibrarydemo.bean.ActivityDetails;
-import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
+import com.jacksen.supportlibrarydemo.adapter.TabLayoutAdapter;
+import com.jacksen.supportlibrarydemo.fragment.ContentFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements RecyclerItemInter {
+public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.recycler_view)
-    RecyclerView recyclerView;
+    @Bind(R.id.tool_bar)
+    Toolbar toolBar;
+    @Bind(R.id.tab_layout)
+    TabLayout tabLayout;
+    @Bind(R.id.appbar_layout)
+    AppBarLayout appbarLayout;
+    @Bind(R.id.viewpager)
+    ViewPager viewpager;
+    @Bind(R.id.bottom_sheet)
+    RelativeLayout bottomSheet;
+    @Bind(R.id.fab)
+    FloatingActionButton fab;
+    @Bind(R.id.content_main)
+    CoordinatorLayout contentMain;
+    @Bind(R.id.navi_view)
+    NavigationView naviView;
+    @Bind(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,29 +58,74 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemInter
      *
      */
     private void init() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
 
-        RecyclerAdapter adapter = new RecyclerAdapter(ITEMS);
-        recyclerView.setAdapter(adapter);
-        adapter.setItemInter(this);
+        //toolbar
+        setSupportActionBar(toolBar);
 
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+        //navigation view
+        naviView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
+
+        //TabLayout
+        TabLayoutAdapter adapter = new TabLayoutAdapter(getSupportFragmentManager());
+        adapter.addFragment(new ContentFragment(), "TAB1");
+        adapter.addFragment(new ContentFragment(), "TAB2");
+        adapter.addFragment(new ContentFragment(), "TAB3");
+        viewpager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewpager);
+
+
+        //bottom sheet
+        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
+        behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(View bottomSheet, int newState) {
+                String state = "null";
+                switch (newState) {
+                    case 1:
+                        state = "STATE_DRAGGING";
+                        break;
+                    case 2:
+                        state = "STATE_SETTLING";
+                        break;
+                    case 3:
+                        state = "STATE_EXPANDED";
+                        break;
+                    case 4:
+                        state = "STATE_COLLAPSED";
+                        break;
+                    case 5:
+                        state = "STATE_HIDDEN";
+                        break;
+                }
+                Log.d("MainActivity", "newState:" + state);
+            }
+
+            @Override
+            public void onSlide(View bottomSheet, float slideOffset) {
+
+            }
+        });
     }
-
-    private static final ActivityDetails[] ITEMS = {
-            new ActivityDetails(R.string.label_daynight_theme, R.string.label_daynight_theme, DayNightThemeDemo.class),
-            new ActivityDetails(R.string.label_custom_tabs, R.string.desc_custom_tabs, CustomTabsSettingsDemo.class),
-            new ActivityDetails(R.string.label_bottom_sheet, R.string.desc_bottom_sheet, BottomSheetDemo.class),
-            new ActivityDetails(R.string.label_vector_drawable, R.string.desc_vector_drawable, VectorDrawableDemo.class),
-            new ActivityDetails(R.string.label_navigation_view, R.string.desc_navigation_view, NavigationViewDemo.class)
-    };
-
 
     @Override
-    public void onItemClick(View view, int position) {
-        ActivityDetails details = ITEMS[position];
-        Intent intent = new Intent(MainActivity.this, details.getActivityClass());
-        startActivity(intent);
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
+
 }

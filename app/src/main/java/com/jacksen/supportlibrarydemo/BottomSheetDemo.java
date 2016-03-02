@@ -3,10 +3,13 @@ package com.jacksen.supportlibrarydemo;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Bottom Sheet
@@ -60,6 +63,20 @@ public class BottomSheetDemo extends AppCompatActivity {
                 BottomSheetDialog dialog = new BottomSheetDialog(BottomSheetDemo.this);
                 dialog.setContentView(R.layout.bottom_sheet_dialog_layout);
                 dialog.show();
+            }
+        });
+
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, R.string.title_snack_bar, Snackbar.LENGTH_LONG).setAction("click me", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(BottomSheetDemo.this, "you have clicked the snack bar.", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
             }
         });
 

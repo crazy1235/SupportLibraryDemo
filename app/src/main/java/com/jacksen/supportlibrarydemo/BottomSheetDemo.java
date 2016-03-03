@@ -4,12 +4,10 @@ import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 /**
  * Bottom Sheet
@@ -18,13 +16,16 @@ import android.widget.Toast;
  */
 public class BottomSheetDemo extends AppCompatActivity {
 
+    private View bottomSheet;
+    private BottomSheetBehavior behavior;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_sheet_demo);
 
-        View bottomSheet = findViewById(R.id.bottom_sheet);
-        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
+        bottomSheet = findViewById(R.id.bottom_sheet);
+        behavior = BottomSheetBehavior.from(bottomSheet);
         behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(View bottomSheet, int newState) {
@@ -51,7 +52,7 @@ public class BottomSheetDemo extends AppCompatActivity {
 
             @Override
             public void onSlide(View bottomSheet, float slideOffset) {
-//                Log.d("MainActivity", "slideOffset:" + slideOffset);
+//                Log.d("BottomSheetDemo", "slideOffset:" + slideOffset);
             }
         });
 
@@ -71,12 +72,7 @@ public class BottomSheetDemo extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, R.string.title_snack_bar, Snackbar.LENGTH_LONG).setAction("click me", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(BottomSheetDemo.this, "you have clicked the snack bar.", Toast.LENGTH_SHORT).show();
-                    }
-                }).show();
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
 

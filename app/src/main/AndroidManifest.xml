@@ -3,6 +3,7 @@
     package="com.jacksen.supportlibrarydemo">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ContentDetailActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity
             android:name=".CustomTabsSettingsDemo"
             android:label="@string/label_custom_tab_settings"
@@ -29,30 +41,17 @@
         <activity
             android:name=".DayNightThemeDemo"
             android:label="@string/label_daynight_theme"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.DarkLight" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".VectorDrawableDemo"
             android:label="@string/label_vector_drawable"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".NavigationViewDemo"
-            android:label="@string/label_navigation_view"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SimpleNaviView"
-            android:label="@string/simple_navi_view"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity
-            android:name=".ContentDetailActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

@@ -4,11 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jacksen.supportlibrarydemo.R;
-import com.jacksen.supportlibrarydemo.bean.ActivityDetails;
+import com.jacksen.supportlibrarydemo.bean.BeautyBean;
 import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
 
 /**
@@ -16,8 +17,7 @@ import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-
-    private ActivityDetails[] items;
+    private BeautyBean[] items;
 
     private RecyclerItemInter itemInter;
 
@@ -26,7 +26,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.itemInter = itemInter;
     }
 
-    public RecyclerAdapter(ActivityDetails[] items) {
+    public RecyclerAdapter(BeautyBean[] items) {
         this.items = items;
     }
 
@@ -38,8 +38,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.getTitleTv().setText(items[position].getTitleId());
-        holder.getDescTv().setText(items[position].getDescriptionId());
+        if (items[position].getImageId() != 0) {
+            holder.getPicIv().setImageResource(items[position].getImageId());
+        }
+        holder.getTitleTv().setText(items[position].getName());
+        holder.getDescTv().setText(items[position].getDesc());
         holder.getLinearLayout().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,16 +63,25 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private LinearLayout linearLayout;
+        private RelativeLayout linearLayout;
+        private ImageView picIv;
         private TextView titleTv;
         private TextView descTv;
 
-        public LinearLayout getLinearLayout() {
+        public RelativeLayout getLinearLayout() {
             return linearLayout;
         }
 
-        public void setLinearLayout(LinearLayout linearLayout) {
+        public void setLinearLayout(RelativeLayout linearLayout) {
             this.linearLayout = linearLayout;
+        }
+
+        public ImageView getPicIv() {
+            return picIv;
+        }
+
+        public void setPicIv(ImageView picIv) {
+            this.picIv = picIv;
         }
 
         public TextView getTitleTv() {
@@ -91,7 +103,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
 
-            linearLayout = (LinearLayout) itemView.findViewById(R.id.item_layout);
+            linearLayout = (RelativeLayout) itemView.findViewById(R.id.item_layout);
+            picIv = (ImageView) itemView.findViewById(R.id.item_pic_iv);
             titleTv = (TextView) itemView.findViewById(R.id.item_title_tv);
             descTv = (TextView) itemView.findViewById(R.id.item_desc_tv);
         }

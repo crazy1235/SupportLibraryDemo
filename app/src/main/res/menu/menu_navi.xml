@@ -37,4 +37,14 @@
         </menu>
     </item>
 
+    <item
+        android:id="@+id/menu_custom_tab"
+        android:icon="@drawable/ic_open_in_browser_white_24dp"
+        android:title="@string/label_custom_tabs" />
+
+
+    <item
+        android:id="@+id/menu_bottom_sheet"
+        android:icon="@drawable/ic_vertical_align_top_white_24dp"
+        android:title="@string/label_bottom_sheet" />
 </menu>

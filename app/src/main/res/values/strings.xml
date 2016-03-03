@@ -46,13 +46,12 @@
     <!--navigation view-->
     <string name="label_navigation_view">NavigationView</string>
     <string name="desc_navigation_view">侧滑栏</string>
-    <string name="simple_navi_view">Simple Navigation View</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="title_drawer_header">jacksen</string>
-    <string name="blog_url">http://blog.csdn.net/crazy1235</string>
+    <string name="blog_url">https://github.com/crazy1235/SupportLibraryDemo</string>
 
     <string name="menu_drawer_item1">menu1</string>
 

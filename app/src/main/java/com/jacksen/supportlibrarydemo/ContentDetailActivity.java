@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -38,6 +39,10 @@ public class ContentDetailActivity extends AppCompatActivity {
 
     private void init() {
         setSupportActionBar(contentToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+
+        collapsingToolbarLayout.setTitle("Details");
 
         contentFab.setOnClickListener(new View.OnClickListener() {
             @Override

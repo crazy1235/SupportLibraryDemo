@@ -4,7 +4,14 @@ This is a Demo for Android Support Library.
 
 ## SnapShot
 
-![Bottom Sheet](https://github.com/crazy1235/SupportLibraryDemo/blob/master/gif/bottom_sheet.gif)
+![LOGO](https://github.com/crazy1235/SupportLibraryDemo/blob/master/gif/logo.png)
+
+<br />
+
+![Support Library](https://github.com/crazy1235/SupportLibraryDemo/blob/master/gif/support1.gif)
+![Support Library](https://github.com/crazy1235/SupportLibraryDemo/blob/master/gif/support2.gif)
+![Support Library](https://github.com/crazy1235/SupportLibraryDemo/blob/master/gif/support3.gif)
+![Support Library](https://github.com/crazy1235/SupportLibraryDemo/blob/master/gif/support4.gif)
 
 
 ## Contains
@@ -13,11 +20,31 @@ This is a Demo for Android Support Library.
 
 * Chrome Custom Tabs
 
-* DayNightTheme
-
-* Vector Drawable
+* TextInputLayout
 
 * Navigation View
+
+* Floating Action Button
+
+* Snackbar
+
+* Toolbar
+
+* TabLayout
+
+* AppBarLayout
+
+* ActionBarDrawerToggle
+
+* CoordinatorLayout
+
+* CollapsingToolbarLayout
+
+* RecyclerView
+
+* CardView
+
+* DrawerLayout
 
 ## Blog
 

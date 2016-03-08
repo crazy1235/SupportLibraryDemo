@@ -46,6 +46,8 @@ This is a Demo for Android Support Library.
 
 * DrawerLayout
 
+* SwipeRefreshLayout
+
 ## Blog
 
 相关内容参考：

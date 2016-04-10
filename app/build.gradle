@@ -26,7 +26,7 @@ android {
 }
 
 ext {
-    supportVersion = '23.2.0'
+    supportVersion = '23.3.0'
 }
 
 dependencies {
@@ -37,5 +37,5 @@ dependencies {
     compile "com.android.support:customtabs:${supportVersion}"
     compile "com.android.support:cardview-v7:${supportVersion}"
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.android.support:support-v4:23.2.0'
+    compile 'com.android.support:support-v4:23.3.0'
 }

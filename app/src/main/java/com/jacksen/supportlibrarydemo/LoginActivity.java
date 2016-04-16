@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.AppLaunchChecker;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -63,14 +62,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        AppLaunchChecker.onActivityCreate(this);
+        com.jacksen.supportlibrarydemo.util.AppLaunchChecker.onActivityCreate(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if (AppLaunchChecker.hasStartedFromLauncher(this)) {
+        if (com.jacksen.supportlibrarydemo.util.AppLaunchChecker.hasStartedFromLauncher(this)) {
             Toast.makeText(this, "started from launcher", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "not started from launcher", Toast.LENGTH_SHORT).show();

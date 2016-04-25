@@ -1,5 +1,6 @@
 package com.jacksen.supportlibrarydemo.adapter;
 
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         if (items[position].getImageId() != 0) {
             holder.getPicIv().setImageResource(items[position].getImageId());
         }
+        ViewCompat.setTransitionName(holder.getPicIv(), String.valueOf(position) + "_beauty");
+
         holder.getTitleTv().setText(items[position].getName());
         holder.getDescTv().setText(items[position].getDesc());
         holder.getLinearLayout().setOnClickListener(new View.OnClickListener() {
@@ -48,6 +51,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             public void onClick(View v) {
                 if (null != itemInter) {
                     itemInter.onItemClick(holder.itemView, position);
+                }
+            }
+        });
+        holder.getPicIv().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != itemInter) {
+                    itemInter.onIvClick(holder, position);
                 }
             }
         });

@@ -15,9 +15,9 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -29,7 +29,6 @@
                     android:scheme="app" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ContentDetailActivity"
             android:parentActivityName=".MainActivity"
@@ -39,7 +38,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".CustomTabsSettingsDemo"
             android:label="@string/label_custom_tab_settings"
@@ -60,8 +58,9 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
+        <activity
+            android:name=".DetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

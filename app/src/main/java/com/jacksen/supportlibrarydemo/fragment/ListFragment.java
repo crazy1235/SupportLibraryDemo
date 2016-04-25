@@ -1,7 +1,6 @@
 package com.jacksen.supportlibrarydemo.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,13 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jacksen.supportlibrarydemo.CustomTabsSettingsDemo;
-import com.jacksen.supportlibrarydemo.DayNightThemeDemo;
-import com.jacksen.supportlibrarydemo.DetailActivity;
+import com.jacksen.supportlibrarydemo.CustomTransition;
 import com.jacksen.supportlibrarydemo.R;
-import com.jacksen.supportlibrarydemo.VectorDrawableDemo;
 import com.jacksen.supportlibrarydemo.adapter.RecyclerAdapter;
-import com.jacksen.supportlibrarydemo.bean.ActivityDetails;
 import com.jacksen.supportlibrarydemo.bean.BeautyBean;
 import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
 
@@ -24,21 +19,26 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * fragment
+ * 列表fragment
  *
  * @author jacksen
  */
-public class ContentFragment extends Fragment implements RecyclerItemInter {
+public class ListFragment extends Fragment implements RecyclerItemInter {
 
     @Bind(R.id.recycler_view)
     RecyclerView recyclerView;
 
+    private OnListItemClickListener onListItemClickListener;
 
-    public ContentFragment() {
+    public void setOnListItemClickListener(ListFragment.OnListItemClickListener onListItemClickListener) {
+        this.onListItemClickListener = onListItemClickListener;
     }
 
-    public static ContentFragment newInstance() {
-        ContentFragment fragment = new ContentFragment();
+    public ListFragment() {
+    }
+
+    public static ListFragment newInstance() {
+        ListFragment fragment = new ListFragment();
         return fragment;
     }
 
@@ -50,8 +50,7 @@ public class ContentFragment extends Fragment implements RecyclerItemInter {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_content, container, false);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
         ButterKnife.bind(this, view);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -61,11 +60,8 @@ public class ContentFragment extends Fragment implements RecyclerItemInter {
         RecyclerAdapter adapter = new RecyclerAdapter(BEAUTY_BEANS);
         recyclerView.setAdapter(adapter);
         adapter.setItemInter(this);
-
-
         return view;
     }
-
 
     private static final BeautyBean[] BEAUTY_BEANS = {
             new BeautyBean("Avril Lavigne1", "Avril was born in Canada, the Canadian singer, songwriter creators, actors."),
@@ -79,30 +75,35 @@ public class ContentFragment extends Fragment implements RecyclerItemInter {
 
     };
 
-    private static final ActivityDetails[] ITEMS = {
-            new ActivityDetails(R.string.label_daynight_theme, R.string.label_daynight_theme, DayNightThemeDemo.class),
-            new ActivityDetails(R.string.label_custom_tabs, R.string.desc_custom_tabs, CustomTabsSettingsDemo.class),
-            new ActivityDetails(R.string.label_vector_drawable, R.string.desc_vector_drawable, VectorDrawableDemo.class)
-    };
-
-    @Override
-    public void onItemClick(View view, int position) {
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-//        ImageView imageView = (ImageView) view.findViewById(R.id.item_pic_iv);
-//        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), imageView, getContext().getString(R.string.transition_img));
-//        startActivity(intent, optionsCompat.toBundle());
-
-        startActivity(intent);
-    }
-
-    @Override
-    public void onIvClick(RecyclerAdapter.ViewHolder holder, int position) {
-
-    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+    }
+
+    @Override
+    public void onIvClick(RecyclerAdapter.ViewHolder holder, int position) {
+//        onListItemClickListener.onIvClick(holder.getPicIv());
+
+        OtherFragment otherFragment = OtherFragment.newInstance();
+        otherFragment.setSharedElementEnterTransition(new CustomTransition());
+
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_layout, otherFragment)
+                .addToBackStack("otherFragment")
+                .addSharedElement(holder.getPicIv(), getString(R.string.transition_img))
+                .commit();
+
+    }
+
+
+    public interface OnListItemClickListener {
+        void onIvClick(View v);
     }
 }

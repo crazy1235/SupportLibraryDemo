@@ -74,6 +74,7 @@ public class DetailActivity extends AppCompatActivity implements OnViewClickList
             changeBoundsTransition = new ChangeBounds();
             changeBoundsTransition.setDuration(getResources().getInteger(R.integer.anim_duration_long));
             otherFragment.setSharedElementEnterTransition(changeBoundsTransition);
+            otherFragment.setSharedElementReturnTransition(changeBoundsTransition);
         }
 
 //        otherFragment.setSharedElementEnterTransition(new CustomTransition());

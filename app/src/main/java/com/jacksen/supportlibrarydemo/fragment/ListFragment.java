@@ -87,11 +87,9 @@ public class ListFragment extends Fragment implements RecyclerItemInter {
 
     @Override
     public void onIvClick(RecyclerAdapter2.ViewHolder holder, int position) {
-
 //        onListItemClickListener.onIvClick(holder.getPicIv());
 
         OtherFragment otherFragment = OtherFragment.newInstance();
-
         otherFragment.setSharedElementEnterTransition(new CustomTransition());
         otherFragment.setSharedElementReturnTransition(new CustomTransition());
 
@@ -99,7 +97,6 @@ public class ListFragment extends Fragment implements RecyclerItemInter {
             otherFragment.setEnterTransition(new Fade());
             setExitTransition(new Fade());
         }*/
-
 
         getActivity().getSupportFragmentManager()
                 .beginTransaction()

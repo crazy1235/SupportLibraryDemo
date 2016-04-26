@@ -12,10 +12,13 @@ import android.transition.TransitionSet;
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
 public class CustomTransition extends TransitionSet {
+
     public CustomTransition() {
         setOrdering(ORDERING_TOGETHER);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            addTransition(new ChangeBounds()).addTransition(new ChangeTransform()).addTransition(new ChangeImageTransform());
+            addTransition(new ChangeBounds())
+                    .addTransition(new ChangeTransform())
+                    .addTransition(new ChangeImageTransform());
         }
     }
 }

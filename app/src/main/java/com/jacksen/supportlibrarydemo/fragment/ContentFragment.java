@@ -16,6 +16,7 @@ import com.jacksen.supportlibrarydemo.DetailActivity;
 import com.jacksen.supportlibrarydemo.R;
 import com.jacksen.supportlibrarydemo.VectorDrawableDemo;
 import com.jacksen.supportlibrarydemo.adapter.RecyclerAdapter;
+import com.jacksen.supportlibrarydemo.adapter.RecyclerAdapter2;
 import com.jacksen.supportlibrarydemo.bean.ActivityDetails;
 import com.jacksen.supportlibrarydemo.bean.BeautyBean;
 import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
@@ -96,7 +97,7 @@ public class ContentFragment extends Fragment implements RecyclerItemInter {
     }
 
     @Override
-    public void onIvClick(RecyclerAdapter.ViewHolder holder, int position) {
+    public void onIvClick(RecyclerAdapter2.ViewHolder holder, int position) {
 
     }
 

@@ -3,7 +3,7 @@ package com.jacksen.supportlibrarydemo.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.jacksen.supportlibrarydemo.CustomTransition;
 import com.jacksen.supportlibrarydemo.R;
 import com.jacksen.supportlibrarydemo.adapter.RecyclerAdapter;
+import com.jacksen.supportlibrarydemo.adapter.RecyclerAdapter2;
 import com.jacksen.supportlibrarydemo.bean.BeautyBean;
 import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
 
@@ -53,11 +54,13 @@ public class ListFragment extends Fragment implements RecyclerItemInter {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         ButterKnife.bind(this, view);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        recyclerView.setLayoutManager(linearLayoutManager);
 
-        RecyclerAdapter adapter = new RecyclerAdapter(BEAUTY_BEANS);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
+        RecyclerAdapter2 adapter = new RecyclerAdapter2(BEAUTY_BEANS);
         recyclerView.setAdapter(adapter);
         adapter.setItemInter(this);
         return view;
@@ -68,11 +71,7 @@ public class ListFragment extends Fragment implements RecyclerItemInter {
             new BeautyBean("Avril Lavigne2", "Avril was born in Canada, the Canadian singer, songwriter creators, actors."),
             new BeautyBean("Avril Lavigne3", "Avril was born in Canada, the Canadian singer, songwriter creators, actors."),
             new BeautyBean("Avril Lavigne4", "Avril was born in Canada, the Canadian singer, songwriter creators, actors."),
-            new BeautyBean("Avril Lavigne5", "Avril was born in Canada, the Canadian singer, songwriter creators, actors."),
-            new BeautyBean("Avril Lavigne6", "Avril was born in Canada, the Canadian singer, songwriter creators, actors."),
-            new BeautyBean("Avril Lavigne7", "Avril was born in Canada, the Canadian singer, songwriter creators, actors."),
-            new BeautyBean("Avril Lavigne8", "Avril was born in Canada, the Canadian singer, songwriter creators, actors.")
-
+            new BeautyBean("Avril Lavigne5", "Avril was born in Canada, the Canadian singer, songwriter creators, actors.")
     };
 
 
@@ -87,21 +86,28 @@ public class ListFragment extends Fragment implements RecyclerItemInter {
     }
 
     @Override
-    public void onIvClick(RecyclerAdapter.ViewHolder holder, int position) {
+    public void onIvClick(RecyclerAdapter2.ViewHolder holder, int position) {
+
 //        onListItemClickListener.onIvClick(holder.getPicIv());
 
         OtherFragment otherFragment = OtherFragment.newInstance();
+
         otherFragment.setSharedElementEnterTransition(new CustomTransition());
+        otherFragment.setSharedElementReturnTransition(new CustomTransition());
+
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            otherFragment.setEnterTransition(new Fade());
+            setExitTransition(new Fade());
+        }*/
+
 
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, otherFragment)
-                .addToBackStack("otherFragment")
+                .addToBackStack(null)
                 .addSharedElement(holder.getPicIv(), getString(R.string.transition_img))
                 .commit();
-
     }
-
 
     public interface OnListItemClickListener {
         void onIvClick(View v);

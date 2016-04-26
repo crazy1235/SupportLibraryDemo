@@ -3,8 +3,6 @@ package com.jacksen.supportlibrarydemo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.ChangeBounds;
-import android.transition.Slide;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -60,7 +58,7 @@ public class DetailActivity extends AppCompatActivity implements OnViewClickList
 
     @Override
     public void onIvClick(View v) {
-        OtherFragment otherFragment = OtherFragment.newInstance();
+       /* OtherFragment otherFragment = OtherFragment.newInstance();
 
         Slide slideTransition = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -84,7 +82,7 @@ public class DetailActivity extends AppCompatActivity implements OnViewClickList
                 .replace(R.id.frame_layout, otherFragment)
 //                .addToBackStack("otherFragment")
                 .addSharedElement(v, getString(R.string.transition_img))
-                .commit();
+                .commit();*/
     }
 
 }

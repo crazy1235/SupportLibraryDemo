@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jacksen.supportlibrarydemo.R;
@@ -16,7 +16,7 @@ import com.jacksen.supportlibrarydemo.inter.RecyclerItemInter;
 /**
  * Created by jacksen on 2016/2/29.
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.ViewHolder> {
 
     private BeautyBean[] items;
 
@@ -27,13 +27,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.itemInter = itemInter;
     }
 
-    public RecyclerAdapter(BeautyBean[] items) {
+    public RecyclerAdapter2(BeautyBean[] items) {
         this.items = items;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_recycler, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_fragment, parent, false);
         return new ViewHolder(view);
     }
 
@@ -42,6 +42,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         if (items[position].getImageId() != 0) {
             holder.getPicIv().setImageResource(items[position].getImageId());
         }
+        ViewCompat.setTransitionName(holder.getPicIv(), String.valueOf(position) + "_beauty");
 
         holder.getTitleTv().setText(items[position].getName());
         holder.getDescTv().setText(items[position].getDesc());
@@ -50,6 +51,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             public void onClick(View v) {
                 if (null != itemInter) {
                     itemInter.onItemClick(holder.itemView, position);
+                }
+            }
+        });
+        holder.getPicIv().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != itemInter) {
+                    itemInter.onIvClick(holder, position);
                 }
             }
         });
@@ -65,16 +74,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private RelativeLayout linearLayout;
+        private LinearLayout linearLayout;
         private ImageView picIv;
         private TextView titleTv;
         private TextView descTv;
 
-        public RelativeLayout getLinearLayout() {
+        public LinearLayout getLinearLayout() {
             return linearLayout;
         }
 
-        public void setLinearLayout(RelativeLayout linearLayout) {
+        public void setLinearLayout(LinearLayout linearLayout) {
             this.linearLayout = linearLayout;
         }
 
@@ -105,7 +114,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
 
-            linearLayout = (RelativeLayout) itemView.findViewById(R.id.item_layout);
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.item_layout);
             picIv = (ImageView) itemView.findViewById(R.id.item_pic_iv);
             titleTv = (TextView) itemView.findViewById(R.id.item_title_tv);
             descTv = (TextView) itemView.findViewById(R.id.item_desc_tv);

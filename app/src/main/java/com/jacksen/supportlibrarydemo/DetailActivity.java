@@ -6,6 +6,7 @@ import android.transition.ChangeBounds;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.jacksen.supportlibrarydemo.fragment.ContentDetailFragment;
 import com.jacksen.supportlibrarydemo.fragment.ListFragment;
 import com.jacksen.supportlibrarydemo.fragment.OtherFragment;
 import com.jacksen.supportlibrarydemo.inter.OnViewClickListener;
@@ -21,21 +22,21 @@ public class DetailActivity extends AppCompatActivity implements OnViewClickList
 
         frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
 
-        /*ContentDetailFragment contentDetailFragment = ContentDetailFragment.newInstance();
+        ContentDetailFragment contentDetailFragment = ContentDetailFragment.newInstance();
 
         contentDetailFragment.setOnViewClickListener(this);
 
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, contentDetailFragment)
-                .commit();*/
+                .commit();
 
-        ListFragment listFragment = ListFragment.newInstance();
+        /*ListFragment listFragment = ListFragment.newInstance();
         listFragment.setOnListItemClickListener(this);
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, listFragment)
-                .commit();
+                .commit();*/
     }
 
     @Override

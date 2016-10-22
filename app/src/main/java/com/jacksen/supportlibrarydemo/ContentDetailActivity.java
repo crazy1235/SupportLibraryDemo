@@ -5,20 +5,16 @@ import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.jacksen.supportlibrarydemo.adapter.DetailRecyclerAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,6 +36,9 @@ public class ContentDetailActivity extends AppCompatActivity implements AppBarLa
     FloatingActionButton contentFab;
     @Bind(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
+
+    @Bind(R.id.detail_recycler_view)
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +69,20 @@ public class ContentDetailActivity extends AppCompatActivity implements AppBarLa
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(ContentDetailActivity.this, "ss", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ContentDetailActivity.this, "sss", Toast.LENGTH_SHORT).show();
                         swipeRefresh.setRefreshing(false);
                     }
                 }, 1000);
             }
         });
+
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        DetailRecyclerAdapter adapter = new DetailRecyclerAdapter(10);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

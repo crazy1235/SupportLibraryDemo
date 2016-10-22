@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_bottom_sheet:
                         startActivity(new Intent(MainActivity.this, BottomSheetDemo.class));
                         break;
+                    case R.id.menu_bottom_navi:
+                        startActivity(new Intent(MainActivity.this, BottomNaviViewActivity.class));
+                        break;
                 }
                 item.setChecked(true);
                 drawerLayout.closeDrawers();

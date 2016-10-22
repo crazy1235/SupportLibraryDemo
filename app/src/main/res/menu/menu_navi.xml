@@ -47,4 +47,9 @@
         android:id="@+id/menu_bottom_sheet"
         android:icon="@drawable/ic_vertical_align_top_white_24dp"
         android:title="@string/label_bottom_sheet" />
+
+    <item
+        android:id="@+id/menu_bottom_navi"
+        android:icon="@drawable/ic_vertical_align_top_white_24dp"
+        android:title="@string/title_activity_bottom_navi_view" />
 </menu>

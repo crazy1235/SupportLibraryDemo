@@ -61,6 +61,9 @@
         <activity
             android:name=".DetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BottomNaviViewActivity"
+            android:label="@string/title_activity_bottom_navi_view" />
     </application>
 
 </manifest>

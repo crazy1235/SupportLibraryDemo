@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SupportLibraryDemo</string>
+    <string name="app_name">SupportLibrary</string>
 
     <!---->
     <string name="label_daynight_theme">DayNight Theme</string>
@@ -84,6 +84,14 @@
 
     <string name="transition_img">beauty</string>
     <string name="transition_fab">fab</string>
+
+    <!-- bottom navigation-->
+
+    <string name="title_activity_bottom_navi_view">BottomNavigationView</string>
+    <string name="menu_recents">Recents</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_nearby">Nearby</string>
+    <string name="menu_navigation">Navigation</string>
 
 
 </resources>

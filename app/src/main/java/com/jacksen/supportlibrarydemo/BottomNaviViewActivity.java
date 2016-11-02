@@ -28,7 +28,17 @@ public class BottomNaviViewActivity extends BaseActivity {
         bottomNaviView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Toast.makeText(BottomNaviViewActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                switch (item.getItemId()) {
+                    case R.id.menu_recent:
+                        break;
+                    case R.id.menu_favorites:
+                        break;
+                    case R.id.menu_nearby:
+                        break;
+                    case R.id.menu_navi:
+                        break;
+                }
+
                 return true;
             }
         });

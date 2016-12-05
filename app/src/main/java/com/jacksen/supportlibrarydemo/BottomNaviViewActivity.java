@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 /**
  * bottom navigation
@@ -42,6 +41,9 @@ public class BottomNaviViewActivity extends BaseActivity {
                 return true;
             }
         });
+
+
+
     }
 
 }

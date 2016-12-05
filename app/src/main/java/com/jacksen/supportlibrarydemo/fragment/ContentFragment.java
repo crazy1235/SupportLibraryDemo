@@ -61,6 +61,8 @@ public class ContentFragment extends Fragment implements RecyclerItemInter {
 
         RecyclerAdapter adapter = new RecyclerAdapter(BEAUTY_BEANS);
         recyclerView.setAdapter(adapter);
+//        recyclerView.getContext();
+//        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         adapter.setItemInter(this);
 
 

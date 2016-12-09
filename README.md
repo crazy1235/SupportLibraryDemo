@@ -16,6 +16,10 @@ This is a Demo for Android Support Library.
 
 ## Contains
 
+* BottomNavigationView
+
+* SnapHelper
+
 * Bottom Sheet
 
 * Chrome Custom Tabs

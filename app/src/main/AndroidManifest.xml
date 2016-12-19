@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,6 +63,9 @@
         <activity
             android:name=".BottomNaviViewActivity"
             android:label="@string/title_activity_bottom_navi_view" />
+        <activity
+            android:name=".diffutils.DiffUtilsDemo"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

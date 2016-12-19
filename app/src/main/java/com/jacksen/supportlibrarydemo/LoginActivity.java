@@ -7,17 +7,19 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jacksen.supportlibrarydemo.util.AppLaunchChecker;
 
 /**
  * A login screen that offers login via email/password.
@@ -27,8 +29,11 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     private UserLoginTask mAuthTask = null;
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
+    private TextInputLayout emailInputLayout;
+    private TextInputLayout passwordInputLayout;
+
+    private TextInputEditText mEmailView;
+    private TextInputEditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
 
@@ -37,8 +42,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        mPasswordView = (EditText) findViewById(R.id.password);
+        emailInputLayout = (TextInputLayout) findViewById(R.id.email_input_layout);
+        passwordInputLayout = (TextInputLayout) findViewById(R.id.password_input_layout);
+
+        mEmailView = (TextInputEditText) findViewById(R.id.email);
+        mPasswordView = (TextInputEditText) findViewById(R.id.password);
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
@@ -69,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (com.jacksen.supportlibrarydemo.util.AppLaunchChecker.hasStartedFromLauncher(this)) {
+        if (AppLaunchChecker.hasStartedFromLauncher(this)) {
             Toast.makeText(this, "started from launcher", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "not started from launcher", Toast.LENGTH_SHORT).show();
@@ -95,17 +103,20 @@ public class LoginActivity extends AppCompatActivity {
         View focusView = null;
 
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
+//            mPasswordView.setError(getString(R.string.error_invalid_password));
+            passwordInputLayout.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
         }
 
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
+//            mEmailView.setError(getString(R.string.error_field_required));
+            emailInputLayout.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+//            mEmailView.setError(getString(R.string.error_invalid_email));
+            emailInputLayout.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
         }

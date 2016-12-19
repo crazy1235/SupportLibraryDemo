@@ -1,10 +1,10 @@
 package com.jacksen.supportlibrarydemo;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +14,7 @@ import android.widget.Button;
  *
  * @author jacksen
  */
-public class BottomSheetDemo extends AppCompatActivity {
+public class BottomSheetDemo extends BaseActivity {
 
     private View bottomSheet;
     private BottomSheetBehavior behavior;
@@ -28,7 +28,7 @@ public class BottomSheetDemo extends AppCompatActivity {
         behavior = BottomSheetBehavior.from(bottomSheet);
         behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
-            public void onStateChanged(View bottomSheet, int newState) {
+            public void onStateChanged(@NonNull View bottomSheet, @BottomSheetBehavior.State int newState) {
                 String state = "null";
                 switch (newState) {
                     case 1:
@@ -51,7 +51,7 @@ public class BottomSheetDemo extends AppCompatActivity {
             }
 
             @Override
-            public void onSlide(View bottomSheet, float slideOffset) {
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
 //                Log.d("BottomSheetDemo", "slideOffset:" + slideOffset);
             }
         });

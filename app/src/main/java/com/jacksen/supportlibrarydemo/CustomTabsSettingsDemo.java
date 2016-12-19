@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -25,7 +24,7 @@ import butterknife.OnClick;
  *
  * @author jacksen
  */
-public class CustomTabsSettingsDemo extends AppCompatActivity implements View.OnClickListener {
+public class CustomTabsSettingsDemo extends BaseActivity implements View.OnClickListener {
 
     @Bind(R.id.test_url_et)
     EditText testUrlEt;
@@ -57,7 +56,6 @@ public class CustomTabsSettingsDemo extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_tabs_settings);
         ButterKnife.bind(this);
-
     }
 
     /**

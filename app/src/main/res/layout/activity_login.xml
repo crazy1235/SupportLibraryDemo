@@ -39,35 +39,30 @@
                 android:src="@drawable/logo" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/email_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:counterEnabled="true"
-                app:counterMaxLength="30"
-                app:errorEnabled="true"
-                app:hintAnimationEnabled="true">
+                app:counterMaxLength="30">
 
-                <android.support.design.widget.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:text="123@qq.com" />
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/password_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:counterEnabled="true"
-                app:counterMaxLength="10"
-                app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Title"
-                app:passwordToggleEnabled="true">
+                app:counterMaxLength="20">
 
-                <android.support.design.widget.TextInputEditText
+                <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,7 +71,8 @@
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:text="123456" />
 
             </android.support.design.widget.TextInputLayout>
 

@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import com.jacksen.supportlibrarydemo.adapter.DetailRecyclerAdapter;
+//import com.jacksen.supportlibrarydemo.adapter.DetailRecyclerAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -81,8 +81,8 @@ public class ContentDetailActivity extends AppCompatActivity implements AppBarLa
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        DetailRecyclerAdapter adapter = new DetailRecyclerAdapter(10);
-        recyclerView.setAdapter(adapter);
+//        DetailRecyclerAdapter adapter = new DetailRecyclerAdapter(10);
+//        recyclerView.setAdapter(adapter);
     }
 
     @Override

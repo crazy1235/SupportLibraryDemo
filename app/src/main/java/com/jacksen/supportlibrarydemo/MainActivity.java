@@ -17,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jacksen.supportlibrarydemo.adapter.TabLayoutAdapter;
@@ -89,11 +91,29 @@ public class MainActivity extends AppCompatActivity {
 
         //TabLayout
         TabLayoutAdapter adapter = new TabLayoutAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ContentFragment(), "TAB1");
-        adapter.addFragment(new ContentFragment(), "TAB2");
-        adapter.addFragment(new ContentFragment(), "TAB3");
+        adapter.addFragment(new ContentFragment(), "阿里巴巴");
+        adapter.addFragment(new ContentFragment(), "网易");
+        adapter.addFragment(new ContentFragment(), "黄河");
+        adapter.addFragment(new ContentFragment(), "权利的游戏");
         viewpager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewpager);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                Toast.makeText(MainActivity.this, "tab.getText():" + tab.getText(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
 
         //snack bar

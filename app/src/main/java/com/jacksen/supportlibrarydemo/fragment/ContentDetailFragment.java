@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jacksen.supportlibrarydemo.R;
-import com.jacksen.supportlibrarydemo.adapter.DetailRecyclerAdapter;
+//import com.jacksen.supportlibrarydemo.adapter.DetailRecyclerAdapter;
 import com.jacksen.supportlibrarydemo.inter.OnViewClickListener;
 
 import butterknife.Bind;
@@ -75,8 +75,8 @@ public class ContentDetailFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        DetailRecyclerAdapter adapter = new DetailRecyclerAdapter(10);
-        recyclerView.setAdapter(adapter);
+//        DetailRecyclerAdapter adapter = new DetailRecyclerAdapter(10);
+//        recyclerView.setAdapter(adapter);
 
         return view;
     }

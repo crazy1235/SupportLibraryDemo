@@ -1,4 +1,4 @@
-package com.jacksen.supportlibrarydemo;
+package com.jacksen.demo;
 
 import org.junit.Test;
 

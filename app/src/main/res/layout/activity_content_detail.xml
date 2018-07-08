@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.jacksen.supportlibrarydemo.ContentDetailActivity">
+    tools:context="com.jacksen.demo.ContentDetailActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/content_appbar_layout"

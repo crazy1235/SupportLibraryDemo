@@ -1,4 +1,4 @@
-package com.jacksen.supportlibrarydemo;
+package com.jacksen.demo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
